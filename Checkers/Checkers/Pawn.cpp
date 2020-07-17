@@ -1,11 +1,11 @@
 #include "Pawn.h"
 
-Pawn::Pawn(int row, int col, FIGURE_COLORS color):
+Pawn::Pawn(int column, int row, FIGURE_COLORS color):
+	col(column),
 	row(row),
-	col(col),
 	_figure_color(color)
 {
-	setPosition(row, col);
+	setPosition(row, column);
 }
 
 void Pawn::setPosition(int row, int col)

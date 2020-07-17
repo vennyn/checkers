@@ -3,7 +3,7 @@
 class Pawn : public IFigure
 {
 public:
-	Pawn(int row, int column, FIGURE_COLORS);
+	Pawn(int column , int row, FIGURE_COLORS);
 	FIGURE_COLORS const getColor();
 	void	setPosition(int row, int col);
 	const	sf::Vector2f getPosition();
