@@ -1,10 +1,10 @@
 #pragma once
 #include "IFigure.h"
-class Pawn : public IFigure, sf::Drawable
+class Pawn : public IFigure
 {
 public:
 	Pawn(int row, int column, FIGURE_COLORS);
-
+	FIGURE_COLORS const getColor();
 	void	setPosition(int row, int col);
 	const	sf::Vector2f getPosition();
 	void	setTexture(sf::Texture& texture_figure);

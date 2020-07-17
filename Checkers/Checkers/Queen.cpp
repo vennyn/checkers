@@ -28,3 +28,8 @@ void Queen::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
 	target.draw(this->_figure_sprite);
 }
+
+FIGURE_COLORS const Queen::getColor()
+{
+	return this->_figure_color;
+}
