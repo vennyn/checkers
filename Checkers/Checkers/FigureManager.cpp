@@ -46,3 +46,41 @@ void FigureManager::loadTexture()
 	if (!queen_texture_white.loadFromFile(""))throw std::runtime_error("White queen texture failed to load!");
 
 }
+
+
+
+
+/*
+	(row +column)%2 forumla is responsible for the fact that we play on black fields only
+	+10 is an offset 
+
+	BLACK
+		------------------
+	 |	b 0 b 0 b 0 b 0  |
+	 |	0 b 0 b 0 b 0 b  |
+	 |	b 0 b 0 b 0 b 0  |
+	 |	0 0 0 0 0 0 0 0  |
+	 |	0 0 0 0 0 0 0 0  |
+	 |	0 w 0 w 0 w 0 w  |
+	 |	w 0 w 0 w 0 w 0  |
+	 |	0 w 0 w 0 w 0 w  |
+	  -------------------	
+
+	WHITE
+*/
+
+void FigureManager::setFiguresOnStartingPositions() 
+{
+	for(int row=0;row<8;++row)
+		for (int column = 0; column < 8; ++column)
+		{
+			if ((row + column) % 2)
+			{
+				if (row < 3)
+					figure_vecotr.push_back(std::make_unique<Pawn>(row * 100 + 10, column * 100 + 10, BLACK));
+
+				else if (row > 4)
+					figure_vecotr.push_back(std::make_unique<Pawn>(row * 100 + 10, column * 100 + 10, WHITE));
+			}
+		}
+}
